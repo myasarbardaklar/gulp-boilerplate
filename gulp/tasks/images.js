@@ -1,14 +1,28 @@
 import gulp from 'gulp'
+import changed from 'gulp-changed'
+import imagemin from 'gulp-imagemin'
+import imageminPngquant from 'imagemin-pngquant'
+import imageminGifsicle from 'imagemin-gifsicle'
+import imageminWebp from 'imagemin-webp'
 import gulpif from 'gulp-if'
-import image from 'gulp-image'
-import plumber from 'gulp-plumber'
+import rename from 'gulp-rename'
 import config from '../config'
 
-export const buildImages = async () =>
-  await gulp
+const copyImages = () =>
+  gulp
     .src(`${config.src.images}/**/*`)
-    .pipe(plumber())
-    .pipe(image())
+    .pipe(changed(config.dest.images))
+    .pipe(
+      gulpif(
+        config.isProd,
+        imagemin([
+          imagemin.mozjpeg({ quality: 80 }),
+          imageminPngquant({ quality: [0.8, 0.9] }),
+          imageminGifsicle(),
+          imagemin.svgo()
+        ])
+      )
+    )
     .pipe(
       gulpif(
         config.isProd,
@@ -16,6 +30,26 @@ export const buildImages = async () =>
         gulp.dest(config.dest.images)
       )
     )
+
+const convertImagesToWebp = () =>
+  gulp
+    .src(`${config.src.images}/**/*.{jpeg,jpg,png,gif}`)
+    .pipe(changed(config.dest.images, { extension: '.webp' }))
+    .pipe(imagemin([imageminWebp({ quality: 80 })]))
+    .pipe(
+      rename({
+        extname: '.webp'
+      })
+    )
+    .pipe(
+      gulpif(
+        config.isProd,
+        gulp.dest(config.build.images),
+        gulp.dest(config.dest.images)
+      )
+    )
+
+export const buildImages = gulp.series(copyImages, convertImagesToWebp)
 
 export const watchImages = () =>
   gulp.watch(`${config.src.images}/**/*`, buildImages)

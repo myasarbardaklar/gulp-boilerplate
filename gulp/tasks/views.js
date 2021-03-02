@@ -16,8 +16,8 @@ global.emittyChangedFile = {
   stats: null
 }
 
-export const buildViews = async () =>
-  await gulp
+export const buildViews = () =>
+  gulp
     .src(`${config.src.views}/*.pug`)
     .pipe(plumber())
     .pipe(

@@ -22,8 +22,7 @@ const server = (done) => {
       `${config.dest.views}/*.html`
     ],
     port: 4747,
-    open: false,
-    notify: false
+    open: false
   })
 
   done()

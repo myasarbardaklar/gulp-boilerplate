@@ -9,14 +9,14 @@ import sourcemaps from 'gulp-sourcemaps'
 import gulpif from 'gulp-if'
 import config from '../config'
 
-export const buildStyles = async () =>
-  await gulp
+export const buildStyles = () =>
+  gulp
     .src(`${config.src.styles}/*.scss`)
     .pipe(plumber())
     .pipe(gulpif(config.isDev, sourcemaps.init()))
     .pipe(sass())
-    .pipe(gulpif(config.isProd, gcmq()))
     .pipe(postcss())
+    .pipe(gcmq())
     .pipe(gulpif(config.isProd, cleanCSS({ level: 2 })))
     .pipe(
       rename({

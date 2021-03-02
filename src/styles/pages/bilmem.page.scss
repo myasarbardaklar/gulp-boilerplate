@@ -1,3 +1,8 @@
 h1 {
   text-decoration: underline;
+  color: blue;
+
+  @include media('<large') {
+    color: red;
+  }
 }

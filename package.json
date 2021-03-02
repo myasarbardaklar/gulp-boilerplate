@@ -59,10 +59,11 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "gulp": "^4.0.2",
+    "gulp-changed": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-if": "^3.0.0",
-    "gulp-image": "^6.2.1",
+    "gulp-imagemin": "^7.1.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.0",
     "gulp-posthtml": "^3.0.5",
@@ -72,6 +73,9 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "husky": "^5.0.9",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-pngquant": "^9.0.1",
+    "imagemin-webp": "^6.0.0",
     "lint-staged": "^10.5.4",
     "postcss": "^8.2.6",
     "postcss-property-lookup": "^2.0.0",
@@ -89,6 +93,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
+    "bootstrap": "^5.0.0-beta2",
     "jquery": "^3.5.1",
     "tailwindcss": "^2.0.3"
   }

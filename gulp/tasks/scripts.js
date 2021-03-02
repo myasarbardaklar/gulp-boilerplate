@@ -7,8 +7,8 @@ import uglify from 'gulp-uglify'
 import gulpif from 'gulp-if'
 import config from '../config'
 
-export const buildScripts = async () =>
-  await browserify(`${config.src.scripts}/main.js`, { debug: true })
+export const buildScripts = () =>
+  browserify(`${config.src.scripts}/main.js`, { debug: true })
     .transform('babelify', { presets: ['@babel/preset-env'] })
     .bundle()
     .on('error', function browserifyError(error) {
