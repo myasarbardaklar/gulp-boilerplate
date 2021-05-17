@@ -1,0 +1,93 @@
+.c-main-hero {
+  @apply py-16 w-full min-h-screen relative z-10 md:h-screen;
+
+  &::before {
+    content: '';
+    @apply bg-green-600 h-full w-1/2 absolute top-0 left-0;
+  }
+
+  &__slider {
+    @apply relative z-10 h-full;
+
+    .swiper-wrapper,
+    .swiper-slide {
+      @apply h-full;
+    }
+
+    .swiper-slide.swiper-slide-active {
+      .c-main-hero__slider__slide {
+        h2,
+        h6,
+        p,
+        footer {
+          @apply -translate-y-0 visible opacity-100;
+        }
+
+        h6 {
+          @apply duration-700;
+        }
+        h2 {
+          @apply duration-700;
+          transition-delay: 300ms;
+        }
+        p {
+          @apply duration-700;
+          transition-delay: 600ms;
+        }
+        footer {
+          @apply duration-700;
+          transition-delay: 900ms;
+        }
+      }
+    }
+
+    &__slide {
+      @apply relative h-full min-h-full select-none;
+
+      img {
+        @apply absolute top-0 left-0 z-10 w-full h-full object-cover;
+      }
+
+      &__content {
+        @apply relative z-20 h-full py-20 px-8 flex flex-col items-center justify-center text-center;
+
+        h6 {
+          @apply flex items-center text-white text-opacity-80 text-xs sm:text-sm uppercase tracking-widest mb-4 translate-y-full transform transition-all invisible opacity-0;
+          transition-duration: 0ms;
+          transition-delay: 0ms;
+
+          &::before {
+            content: '';
+            @apply block h-1 w-8 bg-primary-600 mr-3;
+          }
+          &::after {
+            content: '';
+            @apply block h-1 w-8 bg-primary-600 ml-3;
+          }
+        }
+
+        h2 {
+          @apply text-white font-light text-3xl sm:text-6xl translate-y-full transform transition-all invisible opacity-0;
+          transition-duration: 0ms;
+          transition-delay: 0ms;
+
+          strong {
+            @apply font-bold;
+          }
+        }
+
+        p {
+          @apply text-white text-opacity-80 text-sm sm:text-base mt-4 font-light leading-7 translate-y-full transform transition-all duration-700 invisible opacity-0;
+          transition-duration: 0ms;
+          transition-delay: 0ms;
+        }
+
+        footer {
+          @apply mt-8 translate-y-full transform transition-all duration-700 delay-100 invisible opacity-0;
+          transition-duration: 0ms;
+          transition-delay: 0ms;
+        }
+      }
+    }
+  }
+}

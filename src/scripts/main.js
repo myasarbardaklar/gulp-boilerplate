@@ -1,9 +1,17 @@
-'use strict'
+import WidgetSlideNavigation from './widgets/slide-navigation'
 
-import $ from 'jquery'
+$(document).ready(() => {
+  WidgetSlideNavigation()
 
-import w_SlideNavigation from './widgets/slide-navigation.widget'
-
-$(function () {
-  w_SlideNavigation()
+  const mainHero = new Swiper('.c-main-hero__slider', {
+    slidesPerView: 1,
+    loop: true,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    }
+    /* autoplay: {
+      delay: 5000
+    } */
+  })
 })

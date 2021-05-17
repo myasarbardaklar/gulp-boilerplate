@@ -2,7 +2,7 @@ include ../widgets/_imports.pug
 include ../components/_imports.pug
 
 doctype html
-html(lang="en" dir="ltr")
+html(lang="tr" dir="ltr")
   head
     block head
       meta(charset='UTF-8')
@@ -12,8 +12,9 @@ html(lang="en" dir="ltr")
       meta(name='theme-color', content="#000")
       block stylesheets
         link(rel="preconnect" href="https://fonts.gstatic.com")
-        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap")
-        link(rel='stylesheet', href='/styles/bootstrap.min.css')
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap")
+        link(rel='stylesheet', href='https://unpkg.com/swiper/swiper-bundle.min.css')
+        link(rel='stylesheet', href='/styles/tailwind.min.css')
         link(rel='stylesheet', href='/styles/main.min.css')
       link(rel='icon', type='image/png', sizes='192x192', href='/images/favicon.png')
   
@@ -33,5 +34,7 @@ html(lang="en" dir="ltr")
 
     // scripts
     block scripts
+      script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer)
+      script(src="https://unpkg.com/swiper/swiper-bundle.min.js" defer)
       script(src="/scripts/main.js" defer)
     // ## scripts

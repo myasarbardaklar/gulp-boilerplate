@@ -1,9 +1,35 @@
 mixin c-DefaultHeader
   header.c-default-header
-    ul
-      li
-        a(href="#") Home
-      li
-        a(href="#") Product list
-      li
-        a(href="#") Product detail
+    .c-default-header__wrapper
+      a.c-default-header__logo(href="/")
+        img(src="/images/logo.svg", alt="")
+      
+      button.c-default-header__mobile-button
+        span
+        span
+        span
+      
+      nav.c-default-header__nav
+        ul
+          li
+            a(href="/") Anasayfa
+          li
+            a(href="/") Galeri
+          li
+            a(href="/") Ürünlerimiz
+            ul.c-default-header__dropdown
+              li
+                a(href="/") Flat Nozul
+              li
+                a(href="/") Full Cone Nozul
+              li
+                a(href="/") Hollow Cone Nozul
+              li
+                a(href="/") Tank Yıkama Nozulları
+              li
+                a(href="/")
+                  strong Daha Fazlası
+          li
+            a(href="/") Sektörel Nozullar
+          li
+            a(href="/") İletişim

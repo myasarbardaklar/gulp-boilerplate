@@ -1,11 +1,13 @@
 module.exports = {
   plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+    'postcss-flexbugs-fixes': {},
     'postcss-property-lookup': {},
     'postcss-short': {
       skip: 'null'
     },
     cssnano: {},
-    tailwindcss: {},
-    autoprefixer: {}
+    'postcss-sort-media-queries': {}
   }
 }

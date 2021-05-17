@@ -1,0 +1,7 @@
+.c-button {
+  @apply flex items-center justify-center bg-primary-600 text-white h-12 px-8 font-medium uppercase text-sm border border-solid border-transparent transition-all duration-700;
+
+  &:hover {
+    @apply bg-transparent border-white;
+  }
+}

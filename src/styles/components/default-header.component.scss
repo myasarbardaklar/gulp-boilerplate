@@ -1,4 +1,86 @@
 .c-default-header {
-  background-color: red;
-  background-image: url();
+  @apply fixed top-4 z-30 inset-x-0 px-4 sm:px-0 select-none;
+
+  &__wrapper {
+    @apply container mx-auto h-24 bg-white shadow-lg flex items-center justify-between px-8;
+  }
+
+  &__logo {
+    @apply inline-flex w-36 h-24 items-center justify-center text-center;
+  }
+
+  &__mobile-button {
+    @apply w-12 h-12 lg:hidden flex flex-col items-center justify-center;
+
+    span {
+      @apply block w-8 bg-gray-600;
+      height: 2px;
+
+      &:not(:last-child) {
+        @apply mb-2;
+      }
+    }
+  }
+
+  &__nav {
+    @apply hidden lg:block;
+
+    > ul {
+      @apply flex items-center space-x-8;
+
+      > li {
+        @apply relative;
+
+        > a {
+          @apply inline-flex items-center justify-center text-center uppercase font-medium text-sm h-24 transition-all duration-300 leading-none;
+
+          svg {
+            @apply w-5 h-5 ml-1 relative;
+            bottom: 2px;
+          }
+        }
+
+        &:hover {
+          > a {
+            @apply text-primary-600;
+          }
+
+          .c-default-header__dropdown {
+            @apply opacity-100 visible transform-none pointer-events-auto;
+          }
+        }
+      }
+    }
+  }
+
+  &__dropdown {
+    @apply absolute left-0 top-full z-10 bg-white px-5 py-1 w-60 divide-y divide-gray-300 divide-solid shadow-lg opacity-0 invisible transition-all duration-300 transform -translate-y-8 pointer-events-none border-gray-100 border-t-2;
+
+    li {
+      @apply relative;
+
+      a {
+        @apply block py-3 transition-all duration-300;
+
+        strong {
+          @apply font-medium;
+        }
+      }
+
+      &:not(:last-child)::after {
+        content: '';
+        @apply block w-full h-px absolute top-full left-0 bg-primary-600 transform scale-0 z-10 transition-all duration-300 origin-left;
+      }
+
+      &:hover {
+        a {
+          @apply text-primary-600;
+        }
+
+        &::after {
+          @apply transform-none;
+        }
+      }
+    }
+  }
 }

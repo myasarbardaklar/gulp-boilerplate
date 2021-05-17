@@ -3,6 +3,7 @@ import pug from 'gulp-pug'
 import posthtml from 'gulp-posthtml'
 import gulpif from 'gulp-if'
 import plumber from 'gulp-plumber'
+import ext_replace from 'gulp-ext-replace'
 import { setup as emittySetup } from '@zoxon/emitty'
 import config from '../config'
 
@@ -18,7 +19,7 @@ global.emittyChangedFile = {
 
 export const buildViews = () =>
   gulp
-    .src(`${config.src.views}/*.pug`)
+    .src(`${config.src.views}/pages/*.page.pug`)
     .pipe(plumber())
     .pipe(
       gulpif(
@@ -31,6 +32,7 @@ export const buildViews = () =>
     )
     .pipe(pug({ pretty: false }))
     .pipe(posthtml())
+    .pipe(ext_replace('.html', '.page.html'))
     .pipe(
       gulpif(
         config.isProd,
