@@ -8,6 +8,10 @@ module.exports = {
       skip: 'null'
     },
     cssnano: {},
-    'postcss-sort-media-queries': {}
+    'postcss-sort-media-queries': {},
+    '@fullhuman/postcss-purgecss': {
+      content: [`./build/*.html`, `./dist/*.html`],
+      defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || []
+    }
   }
 }

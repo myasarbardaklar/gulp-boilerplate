@@ -48,6 +48,7 @@
     "@babel/preset-env": "^7.12.17",
     "@babel/register": "^7.12.13",
     "@babel/runtime": "^7.12.18",
+    "@fullhuman/postcss-purgecss": "^4.0.3",
     "@zoxon/emitty": "^1.4.2",
     "autoprefixer": "^10.2.5",
     "babelify": "^10.0.0",

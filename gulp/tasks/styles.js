@@ -6,7 +6,8 @@ import cleanCSS from 'gulp-clean-css'
 import rename from 'gulp-rename'
 import sourcemaps from 'gulp-sourcemaps'
 import gulpif from 'gulp-if'
-import purgecss from 'gulp-purgecss'
+import purgecss from '@fullhuman/postcss-purgecss'
+import tailwindcss from 'tailwindcss'
 import config from '../config'
 
 export const buildStyles = () =>
@@ -37,12 +38,6 @@ export const buildTailwindcss = () =>
     .pipe(plumber())
     .pipe(gulpif(config.isDev, sourcemaps.init()))
     .pipe(postcss())
-    .pipe(
-      gulpif(
-        config.isProd,
-        purgecss({ content: `${config.src.views}/**/*.pug` })
-      )
-    )
     .pipe(gulpif(config.isProd, cleanCSS({ level: 2 })))
     .pipe(
       rename({

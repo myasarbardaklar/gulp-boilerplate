@@ -18,25 +18,11 @@ config.setEnv()
 
 export const build = gulp.series(
   clean,
-  gulp.parallel(
-    buildFonts,
-    buildImages,
-    buildTailwindcss,
-    buildStyles,
-    buildScripts,
-    buildViews
-  )
+  gulp.parallel(buildFonts, buildImages, buildStyles, buildScripts, buildViews)
 )
 
 export const watch = gulp.series(
   build,
   server,
-  gulp.parallel(
-    watchFonts,
-    watchImages,
-    watchTailwindcss,
-    watchStyles,
-    watchScripts,
-    watchViews
-  )
+  gulp.parallel(watchFonts, watchImages, watchStyles, watchScripts, watchViews)
 )
